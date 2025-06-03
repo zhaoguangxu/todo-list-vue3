@@ -30,6 +30,7 @@ function removeTask(id: number) {
 
 <template>
   <div class="container py-4">
+    <span>123</span>
     <NewsBar :news="newsStore.news" />
     <h2 class="mb-3">待办事项列表</h2>
     <form class="input-group mb-3" @submit.prevent="addTask">
