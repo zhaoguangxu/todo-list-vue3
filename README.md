@@ -62,4 +62,50 @@ todo-list-vue3/
 - 代码已适配 TypeScript，所有 `.vue` 文件类型已声明。
 - 代码风格统一，建议开发前先运行 `npm run lint` 和 `npm run format`。
 
+## 代码提交规范
+
+本项目使用 commitlint 和 husky 来规范 Git 提交信息。提交信息必须符合以下格式：
+
+### 提交信息格式
+
+```
+<类型>: <主题>
+
+<详细描述>
+
+<关联 Issue>
+```
+
+- **类型**: 提交类型，如 `feat`、`fix`、`docs`、`style`、`refactor`、`perf`、`test`、`chore`、`revert`、`build`、`ci` 等。
+- **主题**: 简短描述，使用现在时态，首字母不要大写，结尾不要加句号，建议不超过 50 个字符。
+- **详细描述**: 可选，使用现在时态，说明改动的原因和影响，建议不超过 72 个字符。
+- **关联 Issue**: 可选，如 `Closes #123, #456`。
+
+### 示例
+
+```
+feat: 添加用户登录功能
+
+- 实现用户登录功能
+- 更新 UI 显示
+
+Closes #123
+```
+
+### 配置说明
+
+- **commitlint**: 用于检查提交信息是否符合规范。
+- **husky**: 用于在 Git 钩子中运行 commitlint。
+
+### 安装与使用
+
+```bash
+# 安装依赖
+npm install
+
+# 提交代码
+git add .
+git commit -m "feat: 添加新功能"
+```
+
 ---
