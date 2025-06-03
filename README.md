@@ -1,9 +1,11 @@
 # Vue3 待办事项列表项目
 
 ## 项目简介
+
 本项目是一个基于 Vue3 + Pinia + TypeScript + Bootstrap 5.2 的待办事项（ToDo List）Web 应用。支持任务的增删改查、状态管理、从本地 JSON 获取数据、公司新闻展示、GMT+8 时间显示等功能。
 
 ## 功能特性
+
 - 任务的添加、完成、删除（CRUD）
 - 任务分为"待办事项"和"已完成"
 - 任务添加时自动记录 GMT+8 时间
@@ -15,6 +17,7 @@
 - 代码风格统一（ESLint + Prettier）
 
 ## 技术栈
+
 - [Vue 3](https://vuejs.org/)
 - [Pinia](https://pinia.vuejs.org/)
 - [TypeScript](https://www.typescriptlang.org/)
@@ -23,6 +26,7 @@
 - [Prettier](https://prettier.io/)
 
 ## 安装与运行
+
 ```bash
 # 安装依赖
 npm install
@@ -41,15 +45,29 @@ npm run type-check
 ```
 
 ## 目录结构
+
 ```
 todo-list-vue3/
 ├── public/           # 静态资源（tasks.json, news.json）
 ├── src/
 │   ├── components/   # 组件
+│   │   ├── TaskItem.vue
+│   │   ├── TaskList.vue
+│   │   └── NewsBar.vue
 │   ├── stores/       # Pinia 状态管理
+│   │   ├── taskStore.ts
+│   │   └── newsStore.ts
 │   ├── App.vue       # 主页面
 │   ├── main.ts       # 入口文件
 │   └── env.d.ts      # TypeScript .vue 声明
+├── .github/          # GitHub Actions 配置
+│   └── workflows/    # CI/CD 工作流配置
+├── .husky/           # Git 钩子配置
+│   ├── commit-msg    # 提交信息检查
+│   └── pre-commit    # 提交前检查
+├── .vscode/          # VS Code 配置
+│   ├── settings.json # 编辑器设置
+│   └── extensions.json # 推荐扩展
 ├── package.json
 ├── tsconfig.json
 ├── .eslintrc.cjs
@@ -58,6 +76,7 @@ todo-list-vue3/
 ```
 
 ## 说明
+
 - 任务和新闻数据存放于 `public/tasks.json` 和 `public/news.json`，可模拟 REST API。
 - 代码已适配 TypeScript，所有 `.vue` 文件类型已声明。
 - 代码风格统一，建议开发前先运行 `npm run lint` 和 `npm run format`。
