@@ -31,7 +31,6 @@ function removeTask(id: number) {
 <template>
   <div class="container py-4">
     <NewsBar :news="newsStore.news" />
-    123
     <h2 class="mb-3">待办事项列表</h2>
     <form class="input-group mb-3" @submit.prevent="addTask">
       <input v-model="newTask" type="text" class="form-control" placeholder="添加新任务..." />
