@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import { useTaskStore } from './stores/taskStore'
 import { useNewsStore } from './stores/newsStore'
@@ -20,10 +20,10 @@ function addTask() {
     newTask.value = ''
   }
 }
-function toggleTask(id) {
+function toggleTask(id: number) {
   taskStore.toggleTask(id)
 }
-function removeTask(id) {
+function removeTask(id: number) {
   taskStore.removeTask(id)
 }
 </script>

@@ -8,12 +8,15 @@
   </div>
 </template>
 
-<script setup>
-const props = defineProps({
-  news: Array
-})
-function formatTime(time) {
+<script setup lang="ts">
+import type { News } from '../stores/newsStore'
+
+const props = defineProps<{
+  news: News[]
+}>()
+
+function formatTime(time: string) {
   const date = new Date(time)
   return date.toLocaleString('zh-CN', { hour12: false, timeZone: 'Asia/Shanghai' })
 }
-</script> 
+</script>
