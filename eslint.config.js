@@ -5,6 +5,9 @@ import vuePlugin from 'eslint-plugin-vue'
 import prettierConfig from '@vue/eslint-config-prettier'
 
 export default [
+  {
+    ignores: ['dist/**', 'node_modules/**'],
+  },
   eslint.configs.recommended,
   {
     files: ['**/*.{js,ts,vue}'],
@@ -13,6 +16,12 @@ export default [
       parserOptions: {
         ecmaVersion: 2020,
         sourceType: 'module',
+        ecmaFeatures: {
+          jsx: true,
+        },
+      },
+      globals: {
+        process: 'readonly',
       },
     },
     plugins: {
@@ -21,9 +30,21 @@ export default [
     },
     rules: {
       'vue/multi-word-component-names': 'off',
-      ...tseslint.configs.recommended.rules,
+      'no-console': 'warn',
+      'no-debugger': 'warn',
+    },
+  },
+  {
+    files: ['**/*.vue'],
+    rules: {
       ...vuePlugin.configs.base.rules,
       ...vuePlugin.configs.essential.rules,
+    },
+  },
+  {
+    files: ['**/*.{ts,tsx}'],
+    rules: {
+      ...tseslint.configs.recommended.rules,
     },
   },
   prettierConfig,
