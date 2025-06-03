@@ -11,7 +11,7 @@
 <script setup lang="ts">
 import type { News } from '../stores/newsStore'
 
-const props = defineProps<{
+defineProps<{
   news: News[]
 }>()
 

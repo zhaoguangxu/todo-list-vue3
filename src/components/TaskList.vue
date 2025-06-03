@@ -1,3 +1,32 @@
+<script setup lang="ts">
+import { ref, computed } from 'vue'
+import TaskItem from './TaskItem.vue'
+import type { Task } from '../stores/taskStore'
+
+const props = defineProps<{
+  tasks: Task[]
+}>()
+
+const emit = defineEmits<{
+  toggle: [id: number]
+  remove: [id: number]
+}>()
+
+const tab = ref('todo')
+const showTasks = computed(() =>
+  tab.value === 'todo'
+    ? props.tasks.filter((t) => !t.completed)
+    : props.tasks.filter((t) => t.completed)
+)
+
+function toggleTask(id: number) {
+  emit('toggle', id)
+}
+function removeTask(id: number) {
+  emit('remove', id)
+}
+</script>
+
 <template>
   <div>
     <ul class="nav nav-tabs mb-3">
@@ -31,31 +60,3 @@
     </ul>
   </div>
 </template>
-
-<script setup lang="ts">
-import { ref, computed } from 'vue'
-import TaskItem from './TaskItem.vue'
-import type { Task } from '../stores/taskStore'
-
-const props = defineProps<{
-  tasks: Task[]
-}>()
-const emit = defineEmits<{
-  (e: 'toggle', id: number): void
-  (e: 'remove', id: number): void
-}>()
-
-const tab = ref('todo')
-const showTasks = computed(() =>
-  tab.value === 'todo'
-    ? props.tasks.filter((t) => !t.completed)
-    : props.tasks.filter((t) => t.completed)
-)
-
-function toggleTask(id: number) {
-  emit('toggle', id)
-}
-function removeTask(id: number) {
-  emit('remove', id)
-}
-</script>

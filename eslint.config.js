@@ -26,6 +26,8 @@ export default [
       ...vuePlugin.configs.base.rules,
       ...vuePlugin.configs.essential.rules,
       'vue/multi-word-component-names': 'off',
+      'vue/comment-directive': 'off',
+      'vue/valid-template-root': 'off',
     },
   },
   {
