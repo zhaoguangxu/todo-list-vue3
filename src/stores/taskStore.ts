@@ -20,7 +20,7 @@ export const useTaskStore = defineStore('task', () => {
   async function fetchTasks() {
     loading.value = true
     try {
-      const res = await axios.get<Task[]>('/tasks.json')
+      const res = await axios.get<Task[]>('/todo-list-vue3/tasks.json')
       tasks.value = res.data
       error.value = null
     } catch (e) {

@@ -16,7 +16,7 @@ export const useNewsStore = defineStore('news', () => {
   async function fetchNews() {
     loading.value = true
     try {
-      const res = await axios.get<News[]>('/news.json')
+      const res = await axios.get<News[]>('/todo-list-vue3/news.json')
       news.value = res.data
       error.value = null
     } catch (e) {
